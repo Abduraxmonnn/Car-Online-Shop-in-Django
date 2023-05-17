@@ -1,0 +1,1 @@
+from apps.color.serializers.base_color import ColorBaseSerializer

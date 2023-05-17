@@ -1,0 +1,1 @@
+from apps.model.serializers.base_model import ModelBaseSerializer

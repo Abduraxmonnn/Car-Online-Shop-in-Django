@@ -1,0 +1,1 @@
+from .base_brand import BrandBaseSerializer

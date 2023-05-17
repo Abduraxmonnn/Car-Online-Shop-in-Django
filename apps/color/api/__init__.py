@@ -1,0 +1,1 @@
+from apps.color.api.base_color import ColorBaseViewSet

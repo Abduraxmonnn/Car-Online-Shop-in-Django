@@ -1,0 +1,1 @@
+from apps.model.api.base_model import ModelBaseViewSet
