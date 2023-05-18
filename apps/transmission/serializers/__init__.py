@@ -1,0 +1,1 @@
+from apps.transmission.serializers.base_transmission import TransmissionBaseSerializer
