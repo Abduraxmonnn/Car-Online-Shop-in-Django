@@ -18,4 +18,5 @@ router.register(r'body', BodyBaseViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('transmission/', include('apps.transmission.urls')),
+    path('car/', include('apps.car.urls')),
 ]
