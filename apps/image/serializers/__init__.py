@@ -1,0 +1,1 @@
+from apps.image.serializers.base_image import ImageBaseSerializer

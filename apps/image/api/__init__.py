@@ -1,0 +1,1 @@
+from apps.image.api.base_image import ImageBaseViewSet

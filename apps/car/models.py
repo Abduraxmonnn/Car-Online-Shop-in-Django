@@ -18,7 +18,7 @@ class Car(models.Model):
     max_speed = models.IntegerField()
     is_sold = models.BooleanField(default=False)
     is_public = models.BooleanField(default=False)
-    engine = models.FloatField()
+    engine = models.CharField(max_length=50)
     year = models.IntegerField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)

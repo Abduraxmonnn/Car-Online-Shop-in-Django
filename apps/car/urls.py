@@ -8,6 +8,6 @@ urlpatterns = [
     # path('create/', TransmissionCreateAPIView.as_view()),
     # path('update/<int:pk>/', TransmissionUpdateAPIView.as_view()),
     # path('destroy/<int:pk>/', TransmissionDestroyAPIView.as_view()),
-    path('list/', CarListViewSet.as_view({'get': 'list'})),
-    # path('detail/<int:pk>/', TransmissionRetrieveAPIVIew.as_view()),
+    path('list/', CarListDetailViewSet.as_view({'get': 'list'})),
+    path('detail/<int:pk>/', CarListDetailViewSet.as_view({'get': 'retrieve'})),
 ]

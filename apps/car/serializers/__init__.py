@@ -1,1 +1,1 @@
-from apps.car.serializers.list_car import CarListSerializer
+from apps.car.serializers.get_car import CarListDetailSerializer

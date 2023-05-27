@@ -1,0 +1,1 @@
+from apps.custom_filters.range_car_price import CarFilter

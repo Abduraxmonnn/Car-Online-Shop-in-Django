@@ -1,1 +1,1 @@
-from apps.car.api.list_car import CarListViewSet
+from apps.car.api.get_car import CarListDetailViewSet
