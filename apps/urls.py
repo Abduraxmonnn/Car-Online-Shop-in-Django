@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('transmission/', include('apps.transmission.urls')),
     path('car/', include('apps.car.urls')),
+    path('basket/', include('apps.basket.urls')),
 ]
