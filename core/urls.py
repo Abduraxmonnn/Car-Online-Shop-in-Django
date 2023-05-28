@@ -10,6 +10,7 @@ from core.yasg import urlpatterns as doc_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', include('apps.urls')),
+    path('user/', include('user.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
 ]
 
