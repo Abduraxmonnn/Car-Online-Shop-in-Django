@@ -9,28 +9,30 @@ from rest_framework.permissions import IsAuthenticated
 
 # Project
 from apps.basket.models import Basket
-from apps.basket.serializers import MyBasketSerializer
+from apps.basket.serializers import BasketBaseSerializer
 
-class MyBasketAPIView(APIView):
+
+class BasketDeleteAPIView(APIView):
     model = Basket
     queryset = Basket.objects.order_by('-id').all()
-    serializer_class = MyBasketSerializer
+    serializer_class = BasketBaseSerializer
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, pk=None):
+    def delete(self, request, pk=None):
         basket = get_object_or_404(self.queryset, pk=pk)
         serializer = self.serializer_class(basket)
-        if basket.user == request.user or request.user.is_admin is True:
+        if request.user == basket.user:
+            basket.delete()
             return Response({
-                'message': 'Successfully',
+                'message': 'Product Deleted Successfully',
                 'product_brand': basket.product.model.brand.name,
                 'product_model': basket.product.model.name,
                 'product_price': basket.product.price,
                 'quantity': basket.quantity,
-                'total_price': float(basket.total_price),
-                'product_data': serializer.data,
+                'total_price': float(basket.total_price)
             }, status=status.HTTP_200_OK)
         else:
             return Response({
-                'Error': 'You are not owner of Basket'
+                'message': 'Error You do not have permission for delete others basket',
+                'product_data': serializer.data
             }, status=status.HTTP_400_BAD_REQUEST)
