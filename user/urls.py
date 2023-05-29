@@ -1,5 +1,6 @@
 # Django
 from django.urls import path
+from rest_framework.authtoken.views import obtain_auth_token
 
 # Project
 from user.api import UserRegsitrationAPIView, UserLogInView, UserTokenAPIView, UserListView, UserDeleteAPIView, \
@@ -13,4 +14,5 @@ urlpatterns = [
     path('me/', UserMeView.as_view()),
     path('me/<int:pk>/', UserMeView.as_view()),
     path('delete/<int:pk>/', UserDeleteAPIView.as_view()),
+    path('token/generate/', obtain_auth_token),
 ]

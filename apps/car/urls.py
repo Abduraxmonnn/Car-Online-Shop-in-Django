@@ -5,7 +5,7 @@ from django.urls import path, include
 from apps.car.api import *
 
 urlpatterns = [
-    # path('create/', TransmissionCreateAPIView.as_view()),
+    path('create/', CarCreateViewSet.as_view({'post': 'create'})),
     # path('update/<int:pk>/', TransmissionUpdateAPIView.as_view()),
     # path('destroy/<int:pk>/', TransmissionDestroyAPIView.as_view()),
     path('list/', CarListDetailViewSet.as_view({'get': 'list'})),

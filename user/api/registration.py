@@ -23,21 +23,10 @@ class UserRegsitrationAPIView(APIView):
         is_admin = serializer.validated_data['is_admin']
         check_user = User.objects.filter(username__iexact=username)
         if check_user.exists():
-            first = check_user.first()
-            if first.otp is not None:
-                if first.is_verified is True:
-                    return Response({
-                        "status_code": 400,
-                        "message": "User exists",
-                    }, status=status.HTTP_400_BAD_REQUEST)
-                elif first.is_verified is False:
-                    return Response({
-                        "status_code": 400,
-                        "message": "User is not Activate",
-                    }, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error': 'user exists'}, status=status.HTTP_400_BAD_REQUEST)
 
         user = User.objects.create_user(username=username, password=password)
-        user.name = name
+        user.fio = name
         user.username = username
         user.password = password
         user.age = age
