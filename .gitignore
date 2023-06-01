@@ -3,4 +3,5 @@
 venv
 *.pyc
 static
-#media
+media
+db.sqlite3
